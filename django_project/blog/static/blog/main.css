@@ -17,7 +17,7 @@ ul {
 }
 
 .site-header .navbar-nav .nav-link {
-  color: #cbd5db;
+  color: #74B186;
 }
 
 .site-header .navbar-nav .nav-link:hover {
@@ -29,7 +29,7 @@ ul {
 }
 
 .content-section {
-  background: #ffffff;
+  background: #F0FAED;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -41,7 +41,7 @@ ul {
 }
 
 a.article-title:hover {
-  color: #428bca;
+  color: #128bca;
   text-decoration: none;
 }
 

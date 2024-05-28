@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import Post
+from .models import Item
+from .models import *
 
 
 def home(request):
@@ -10,7 +12,7 @@ def home(request):
 
 def category(request):
     context = {
-        'posts': Post.objects.all()
+        'categories': Category.objects.all()
     }
     return render(request, 'blog/category.html', context)
 
@@ -22,7 +24,7 @@ def my_items(request):
 
 def rent(request):
     context = {
-        'posts': Post.objects.all()
+        'items': Item.objects.all()
     }
     return render(request, 'blog/rent.html', context)
 

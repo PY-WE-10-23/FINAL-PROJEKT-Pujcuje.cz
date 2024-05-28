@@ -28,5 +28,17 @@ def rent(request):
     }
     return render(request, 'blog/rent.html', context)
 
+def my_orders(request):
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, 'blog/rent.html', context)
+
+def my_diary(request):
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, 'blog/rent.html', context)
+
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})

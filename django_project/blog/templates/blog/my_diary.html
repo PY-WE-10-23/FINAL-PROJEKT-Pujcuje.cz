@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for item in items %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">Rentier: {{ item.author }}</a>
+              <a class="mr-2" href="#">Price: {{ item.price }}</a>
+
+              <small class="text-muted">Category: {{ item.category.title }}</small>
+            </div>
+            <div class="article-metadata">
+              <img class="rounded-circle account-img" src="{{ item.image.url }}">
+            </div>
+            <h2><a class="article-title" href="#">{{ item.title }}</a></h2>
+            <p class="article-content">{{ item.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

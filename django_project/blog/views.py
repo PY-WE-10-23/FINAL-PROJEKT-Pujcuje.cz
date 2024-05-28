@@ -20,5 +20,11 @@ def my_items(request):
     }
     return render(request, 'blog/my_items.html', context)
 
+def rent(request):
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'blog/rent.html', context)
+
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})

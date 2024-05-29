@@ -1,0 +1,1 @@
+confirm("Je ti 18náct?");

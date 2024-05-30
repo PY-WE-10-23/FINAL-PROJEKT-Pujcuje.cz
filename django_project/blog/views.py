@@ -82,3 +82,10 @@ def my_diary(request):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
+@login_required
+def item_list(request):
+    items = Item.objects.all()
+    return render(request, 'blog/my_items.html', {'items': items})
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')

@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Category, Item, Post
+from .models import Category, Item, Post, Image
 
 
 class CategoryForm(forms.ModelForm):
@@ -13,6 +13,12 @@ class ItemForm(forms.ModelForm):
     class Meta:
         model = Item
         fields = ['title', 'price','content','image','category','author']
+
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = ("name", "img")
+
 """
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()

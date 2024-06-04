@@ -6,7 +6,10 @@ from .models import *
 from .forms import *
 
 def index(request):
-    return render(request, 'blog/base.html')
+    context = {
+        'posts': Post.objects.all()
+    }
+    return render(request, 'blog/home.html', context)
 
 def home(request):
     context = {

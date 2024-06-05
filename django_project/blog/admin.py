@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Post, Category, Item, Image
+from .models import Post, Category, Item
 
 admin.site.register(Post)
 admin.site.register(Category)
 admin.site.register(Item)
+"""
 admin.site.register(Image)
+"""

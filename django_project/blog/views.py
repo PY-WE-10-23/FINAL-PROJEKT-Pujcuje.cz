@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Post
 from .models import Item
 from .models import *
@@ -24,8 +25,11 @@ def category(request):
     return render(request, 'blog/category.html', context)
 
 def category_list(request,category_id):
+
+    test = Item.objects.filter(category=category_id).values()
+    print(test)
     context = {
-        'categories': Category.objects.all(category_id=category_id)
+        'categories': Item.objects.filter(category=category_id).values()
     }
     return render(request, 'blog/category_list.html', context)
 @login_required
@@ -62,6 +66,7 @@ def edit_item(request, item_id):
         form = ItemForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
+            messages.success(request, f'Your account has been updated!')
             return redirect('item_list')
     else:
         form = ItemForm(instance=item)

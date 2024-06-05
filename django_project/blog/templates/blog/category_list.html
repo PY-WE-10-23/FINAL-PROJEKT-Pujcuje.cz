@@ -1,13 +1,15 @@
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for category in categories %}
+    {% for item in categories %}
         <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" {{ category.title }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-            </div>
-          </div>
+
+              <a class="mr-3"> {{ item.title }} </a>
+
+                <img class="rounded-circle account-img" src="../../media/{{ item.image }}">
+              <small class="text-muted"> {{ item.content }} </small>
+            <br>
+            <a class="text-muted"> {{ item.price }}</a>
+
         </article>
     {% endfor %}
 {% endblock content %}

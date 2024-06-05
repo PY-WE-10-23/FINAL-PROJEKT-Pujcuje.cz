@@ -14,11 +14,12 @@ class ItemForm(forms.ModelForm):
         model = Item
         fields = ['title', 'price','content','image','category','author']
 
+"""
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ("name", "img")
-
+        fields = ("image")
+"""
 """
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()

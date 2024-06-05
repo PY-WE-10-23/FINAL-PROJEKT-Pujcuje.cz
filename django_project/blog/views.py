@@ -66,7 +66,7 @@ def edit_item(request, item_id):
         form = ItemForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
-            messages.success(request, f'Your account has been updated!')
+            messages.success(request, f'Your item has been updated!')
             return redirect('item_list')
     else:
         form = ItemForm(instance=item)

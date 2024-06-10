@@ -5,11 +5,11 @@
 {% block content %}
     <h2>Item List</h2>
     <form method="get">
-        <label for="user_id">Filter by user:</label>
-        <select name="user_id" id="user_id">
+        <label for="item.author">Filter by user:</label>
+        <select name="item.author" id="item.id">
             <option value="">All</option>
             {% for user in user_list %}
-                <option value="{{ user.id }}">{{ user.username }}</option>
+                <option value="{{ item.id }}">{{ item.author }}</option>
             {% endfor %}
         </select>
         <label for="slots_sort">Sort by available slots:</label>
@@ -35,7 +35,7 @@
             {% for item in items %}
                 <tr>
                     <td>{{ item.author }}</td>
-                    <td>{{ item.title }}</td>
+                    <td><h5>{{ item.title }}</h5></td>
                     <td>{{ item.price }}</td>
                     <td>{{ item.category.title }}</td>
                     <td>
@@ -48,7 +48,9 @@
                         <a href="{% url 'remove_item' item.id %}">Remove</a>
                         {% endif %}
                     </td>
+
                 </tr>
+
             {% endfor %}
         </tbody>
     </table>

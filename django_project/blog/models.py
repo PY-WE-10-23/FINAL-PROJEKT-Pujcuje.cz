@@ -10,7 +10,7 @@ class Item(models.Model):
     title = models.CharField(max_length=100)
     price = models.IntegerField()
     content = models.TextField()
-    image = models.ImageField(default='default.jpg', upload_to='item_pics')
+    image = models.ImageField(default='default_item.jpg', upload_to='item_pics')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):

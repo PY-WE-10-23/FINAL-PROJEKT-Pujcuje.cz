@@ -9,6 +9,11 @@
               <small class="text-muted"> {{ item.content }} </small>
             <br>
             <a class="text-muted"> {{ item.price }}</a>
+            <td>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'rent_item' item.id %}">Rent</a>
+                        {% endif %}
+            </td>
 
         </article>
     {% endfor %}

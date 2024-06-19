@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Remove Item{% endblock %}
+
+{% block content %}
+    <h2>Remove Item</h2>
+    <p>Are you sure you want to remove the Item "{{ item.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, remove</button>
+    </form>
+    <button onclick="window.location.href='{% url 'my_items' %}'">No, go back</button>
+{% endblock %}

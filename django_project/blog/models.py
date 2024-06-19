@@ -34,10 +34,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-class XYZ_TestData(models.Model):
-   my_title = models.CharField('XYZ Title',max_length=255)
-   my_date= models.DateField('XYZ Date')
-   my_date_time = models.DateTimeField('XYZ DateTime')
-   my_active = models.BooleanField(default=True)
-   my_des = models.TextField('XYZ Description',default='Test')

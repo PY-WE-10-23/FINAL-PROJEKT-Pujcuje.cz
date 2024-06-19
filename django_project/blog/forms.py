@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Category, Item, Post, XYZ_TestData
+from .models import Category, Item, Post, Image
 
 
 class CategoryForm(forms.ModelForm):
@@ -43,36 +43,6 @@ class DateRangeForm(forms.Form):
           search_dict.update({'daterange_form': daterange_form})
 
       return render(request, 'InterfaceApp/table_search.html', search_dict)
-
-
-
-class XYZ_DateInput(forms.DateInput):
-    input_type = "date"
-    def __init__(self, **kwargs):
-        kwargs["format"] = "%Y-%m-%d"
-        # kwargs["format"] = "%d-%m-%Y"
-        super().__init__(**kwargs)
-
-class XYZ_DateTimeInput(forms.DateTimeInput):
-    input_type = "datetime-local"
-    #input_type = "datetime"
-    def __init__(self, **kwargs):
-        kwargs["format"] = "%Y-%m-%dT%H:%M"
-        super().__init__(**kwargs)
-
-class XYZ_TestDataForm(forms.ModelForm):
-    class Meta:
-        model =XYZ_TestData
-        fields = '__all__'
-        widgets = {
-            'my_date':XYZ_DateInput(format=["%Y-%m-%d"],),
-            # 'my_date': XYZ_DateInput(format=["%d-%m-%Y"], ),
-            'my_date_time': XYZ_DateTimeInput(format=["%Y-%m-%dT%H:%M", "%Y-%m-%d %H:%M"],),
-            'my_des': forms.Textarea(attrs={'rows': 5, 'class': 'form-control'}),
-
-        }
-
-
 """
 class ImageForm(forms.ModelForm):
     class Meta:

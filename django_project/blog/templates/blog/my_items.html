@@ -1,15 +1,58 @@
 {% extends "blog/base.html" %}
+
+{% block title %}Item List{% endblock %}
+
 {% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-          </div>
-        </article>
-    {% endfor %}
-{% endblock content %}
+    <h2>Item List</h2>
+    <form method="get">
+        <label for="item.author">Filter by user:</label>
+        <select name="item.author" id="item.id">
+            <option value="">All</option>
+            {% for user in user_list %}
+                <option value="{{ item.id }}">{{ item.author }}</option>
+            {% endfor %}
+        </select>
+        <label for="slots_sort">Sort by available slots:</label>
+        <select name="slots_sort" id="slots_sort">
+            <option value="">None</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Owner</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.author }}</td>
+                    <td><h5>{{ item.title }}</h5></td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.category.title }}</td>
+                    <td>
+                        <img class="rounded-circle account-img" src="{{ item.image.url }}">
+                    </td>
+                    <td>{{ item.content }}</td>
+                    <td>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'edit_item' item.id %}">Edit</a> -
+                        <a href="{% url 'remove_item' item.id %}">Remove</a>
+                        {% endif %}
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    <button onclick="window.location.href='{% url 'blog-home' %}'">Back</button>
+{% endblock %}

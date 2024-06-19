@@ -101,17 +101,17 @@ def item_list(request):
     return render(request, 'blog/my_items.html', {'items': items})
 
 def privacy_policy(request):
-    return render(request, 'blog/privacy_policy.html')
+    return render(request, 'privacy_policy.html')
 
 @login_required
 def rent_item(request,item_id):
     if request.method == "POST":
-        form = XYZ_TestDataForm(request.POST)
+        form = DateRangeForm(request.POST)
 
         if form.is_valid():
             form.save()
             messages.success(request, f'Item has been rented!')
             return redirect('blog-rent')
     else:
-        form = XYZ_TestDataForm()
+        form = DateRangeForm()
     return render(request, 'blog/rent.html', {'form': form})

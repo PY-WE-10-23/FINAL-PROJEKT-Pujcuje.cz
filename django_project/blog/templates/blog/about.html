@@ -1,4 +1,9 @@
 {% extends "blog/base.html" %}
+{% load static %}
 {% block content %}
     <h1>About Page</h1>
+    <script type="text/javascript" src="{% static 'blog/scripts/my_first_script.js' %}"></script>
+    This web is for share & rent everything what you want.
+    Developed by M.Navratil / 2024
+    <a class="nav-item nav-link" href="{% url 'privacy_policy' %}">Privacy Policy</a>
 {% endblock content %}

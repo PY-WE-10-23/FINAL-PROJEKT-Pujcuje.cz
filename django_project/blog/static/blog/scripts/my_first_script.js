@@ -1,0 +1,1 @@
+confirm("Děkujeme za návštevu našeho webu. Chceš se o nás dozvědět více?");
